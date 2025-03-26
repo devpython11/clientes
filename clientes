@@ -1,0 +1,24 @@
+class Cliente:
+    def __init__(self, nome, idade, genero,saldo_cliente):
+        self.nome = nome
+        self.idade = idade
+        self.genero = genero
+        self.produtos = {"agua": 10,
+                         "feijao": 20,
+                         "arroz": 30
+                         }
+        self.saldo_cliente = saldo_cliente
+        
+    def comprar(self, produtos):
+        produtos = str(input("DIGITE O PRODUTO: "))
+        if self.saldo_cliente < self.produtos[produtos]:
+            print("saldo insuficiente")
+        elif produtos in self.produtos:
+            print("COMPRA FEITA")
+        
+cliente1 = Cliente("italo", "13", "masculino", 200)
+print(cliente1.nome)
+cliente1.comprar("")
+cliente2 = Cliente("jane", "53", "feminino", 500)
+print(cliente2.nome)
+cliente2.comprar("")
