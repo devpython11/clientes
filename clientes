@@ -8,17 +8,32 @@ class Cliente:
                          "arroz": 30
                          }
         self.saldo_cliente = saldo_cliente
-        
+           
     def comprar(self, produtos):
         produtos = str(input("DIGITE O PRODUTO: "))
-        if self.saldo_cliente < self.produtos[produtos]:
+        if produtos == "cancelar":
+            raise Exception("compra cancelada")
+        elif produtos not in self.produtos:
+            print("produto nao encotrado")
+        elif self.saldo_cliente < self.produtos[produtos]:
             print("saldo insuficiente")
         elif produtos in self.produtos:
             print("COMPRA FEITA")
         
-cliente1 = Cliente("italo", "13", "masculino", 200)
+
+nome = str(input("digite seu nome: "))
+idade = int(input("digite sua idade: "))
+genero = str(input("digite seu genero: "))
+saldo_cliente = float(input("digite seu saldo: "))        
+
+cliente1 = Cliente(nome, idade, genero, saldo_cliente)
 print(cliente1.nome)
 cliente1.comprar("")
-cliente2 = Cliente("jane", "53", "feminino", 500)
+
+nome = str(input("digite seu nome: "))
+idade = int(input("digite sua idade: "))
+genero = str(input("digite seu genero: "))
+saldo_cliente = float(input("digite seu saldo: "))
+cliente2 = Cliente(nome, idade, genero, saldo_cliente)
 print(cliente2.nome)
 cliente2.comprar("")
